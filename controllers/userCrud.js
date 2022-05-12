@@ -11,22 +11,25 @@ const fonctions = require('../users/functions');
 //          note: "11"   
 //         }
 //     ]);
-    
+
 // }
 
-exports.addUser = (req, res, next) => {
-    fonctions.addUser(req.body);
+exports.addUser = async (req, res, next) => {
+    await fonctions.addUser(req.body);
     res.json(req.body);
 }
 
-exports.updateUser = (req, res, next) => {
-    fonctions.updateUser(req.body);
+exports.updateUser = async (req, res, next) => {
+    await fonctions.updateUser(req.body);
+    res.json(req.body);
 }
 
-exports.getUsers = () => {
-    fonctions.getUsers;
+exports.getUsers = async (req, res) => {
+    const users = await fonctions.getUsers();
+    res.json(users)
 }
 
-exports.deleteUser = (req, res, next) => {
-    fonctions.deleteUser(req.body.id);
+exports.deleteUser = async (req, res, next) => {
+    await fonctions.deleteUser(req.body.id);
+    res.json({ id: req.body.id })
 }
