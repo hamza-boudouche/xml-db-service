@@ -5,9 +5,9 @@ const projectRoutes = require('./routes/projectRoutes');
 const app = express();
 app.use(express.json());
 
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
 
-app.use('/project', projectRoutes);
+app.use('/api/project', projectRoutes);
 
 
 module.exports = app;
