@@ -24,7 +24,7 @@ exports.updateUser = (req, res, next) => {
 }
 
 exports.getUsers = () => {
-    fonctions.getUsers;
+    fonctions.getUsers();
 }
 
 exports.deleteUser = (req, res, next) => {
