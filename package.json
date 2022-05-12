@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db": "node db_init.js",
     "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "basex": "^1.0.1",
-    "nodemon": "^2.0.16",
-    "xml-js": "^1.6.11"
+    "fast-xml-parser": "^4.0.7",
+    "nodemon": "^2.0.16"
   }
 }

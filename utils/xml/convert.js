@@ -1,22 +1,22 @@
-const convert = require("xml-js");
+const { XMLParser, XMLBuilder, XMLValidator } = require('fast-xml-parser');
+const parser = new XMLParser();
+const builder = new XMLBuilder();
 
 const jsToXml = (obj) => {
 	if (obj !== undefined) {
-		return convert.js2xml(
+		return builder.build(
 			{
 				root: {
 					...obj,
 				},
-			},
-			{ compact: true }
-		);
+			});
 	}
 	return "";
 };
 
 const xmlToJs = (xml) => {
 	if (xml !== undefined && xml !== "") {
-		return convert.xml2js(xml, { ignoreComment: true, alwaysChildren: true, compact: true });
+		return parser.parse(xml);
 	}
 	return {}
 };
