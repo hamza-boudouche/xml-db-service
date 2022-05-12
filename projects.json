@@ -1,0 +1,40 @@
+{
+  "uid": 1,
+  "titre": "projet1",
+  "note": 18,
+  "motscles": {
+    "motcle": ["Java", "Web"]
+  },
+  "versions": {
+    "version": [
+      {
+        "commentaire": "comment 1",
+        "contenu": "nameOfFile.pdf"
+      }
+    ]
+  },
+  "groupes": {
+    "groupe": [
+      {
+        "uid": 1,
+        "membres": {
+          "membre": [
+            {
+              "uid": 1
+            }
+          ]
+        },
+        "projects": {
+          "project": [
+            {
+              "uid": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "profId": 1,
+  "status": "FINI",
+  "type": "PROJET_INTEGRE"
+}

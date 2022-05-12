@@ -45,22 +45,22 @@ const deleteProject = async (projectId) => {
 	client.replace("/projects/projects.xml", jsToXml({ project: projects }), console.log)
 }
 
-const testing = async () => {
-	await addProject({
-		id: 1,
-		name: "hamza3"
-	})
-	await addProject({
-		id: 2,
-		name: "hamza3"
-	})
-	await updateProject({
-		id: 2,
-		name: "hamza_mod"
-	})
-	await deleteProject(2)
-	console.log(await getProjects())
-}
+// const testing = async () => {
+// 	await addProject({
+// 		id: 1,
+// 		name: "hamza3"
+// 	})
+// 	await addProject({
+// 		id: 2,
+// 		name: "hamza3"
+// 	})
+// 	await updateProject({
+// 		id: 2,
+// 		name: "hamza_mod"
+// 	})
+// 	await deleteProject(2)
+// 	console.log(await getProjects())
+// }
 
 // testing();
 

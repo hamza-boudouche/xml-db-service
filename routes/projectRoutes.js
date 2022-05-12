@@ -6,7 +6,7 @@ const projectCrud = require('../controllers/projectCrud.js');
 //Indiquer à l'application la fonction à executer quand elle reçoit une requete http.
 
 //get all users
-router.get('/' ,projectCrud.getProjects);
+router.get('/', projectCrud.getProjects);
 
 //updating
 router.put('/', projectCrud.updateProject)

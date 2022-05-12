@@ -1,0 +1,65 @@
+<root>
+	<project>
+		<uid>1</uid>
+		<titre>hamza</titre>
+		<note>19</note>
+		<motscles>
+			<motcle>
+				Java
+			</motcle>
+			<motcle>
+				web
+			</motcle>
+		</motscles>
+		<versions>
+			<version>
+				<commentaire>something comment</commentaire>
+				<contenu>nameOfFile.pdf</contenu>
+			</version>
+		</versions>
+		<groupes>
+			<groupe>
+				<uid>1</uid>
+				<membres>
+					<membre>
+						<uid>1</uid>
+					</membre>
+				</membres>
+				<projects>
+					<project>
+						<uid>1</uid>
+					</project>
+				</projects>
+			</groupe>
+		</groupes>
+		<profId>2</profId>
+		<status>FINI</status>
+		<type>PROJET_INTEGRE</type>
+	</project>
+
+	<project>
+		<uid>2</uid>
+		<titre>hamza</titre>
+		<note>18</note>
+		<motscles>
+			<motcle>
+				Python
+			</motcle>
+			<motcle>
+				Web
+			</motcle>
+		</motscles>
+		<versions>
+			<version>
+				<commentaire>something comment 2</commentaire>
+				<contenu>nameOfFile2.pdf</contenu>
+			</version>
+		</versions>
+		<groupes>
+			<groupe></groupe>
+		</groupes>
+		<profId>1</profId>
+		<status>EN_COURS</status>
+		<type>PROJET_FIN_ETUDES</type>
+	</project>
+</root>

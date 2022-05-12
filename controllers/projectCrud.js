@@ -12,7 +12,7 @@ exports.updateProject = async (req, res, next) => {
 }
 
 exports.getProjects = async (req, res) => {
-    const projects = await fonctions.getProjects()();
+    const projects = await fonctions.getProjects();
     res.json(projects);
 }
 

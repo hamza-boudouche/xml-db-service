@@ -1,10 +1,31 @@
 <root>
 	<user>
-		<id>1</id>
-		<name>hamza</name>
+		<uid>1</uid>
+		<email>hamza</email>
+		<displayName>hamzaAdmin</displayName>
+		<imageUrl>hamza</imageUrl>
+		<type>admin</type>
 	</user>
+
 	<user>
-		<id>2</id>
-		<name>hamza2</name>
+		<uid>2</uid>
+		<email>hamza</email>
+		<displayName>hamza</displayName>
+		<imageUrl>hamza</imageUrl>
+		<type>etudiant</type>
+		<mle>61947</mle>
+		<niveauetudes>BAC3</niveauetudes>
+	</user>
+
+	<user>
+		<uid>3</uid>
+		<email>hamza</email>
+		<displayName>hamza</displayName>
+		<imageUrl>hamza</imageUrl>
+		<type>prof</type>
+		<domainesexpertise>
+			<domaine>XML</domaine>
+			<domaine>WEB</domaine>
+		</domainesexpertise>
 	</user>
 </root>

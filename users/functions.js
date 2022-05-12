@@ -45,22 +45,22 @@ const deleteUser = async (userId) => {
 	client.replace("/users/users.xml", jsToXml({ user: users }), console.log)
 }
 
-const testing = async () => {
-	await addUser({
-		id: 3,
-		name: "hamza3"
-	})
-	await addUser({
-		id: 3,
-		name: "hamza3"
-	})
-	await updateUser({
-		id: 3,
-		name: "hamza_mod"
-	})
-	// await deleteUser(3)
-	console.log(await getUsers())
-}
+// const testing = async () => {
+// 	await addUser({
+// 		id: 3,
+// 		name: "hamza3"
+// 	})
+// 	await addUser({
+// 		id: 3,
+// 		name: "hamza3"
+// 	})
+// 	await updateUser({
+// 		id: 3,
+// 		name: "hamza_mod"
+// 	})
+// 	// await deleteUser(3)
+// 	console.log(await getUsers())
+// }
 
 // testing();
 
