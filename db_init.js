@@ -1,22 +1,24 @@
 const basex = require("basex")
-const client = new basex.Session("localhost", 1984, "admin", "admin");
-client.execute("create db user_db", console.log);
-client.add("/users/users.xml", `
-<root>
-	<user>
-		<id>admin</id>
-		<name>hamza</name>
-	</user>
-	<user>
-		<id>admin</id>
-		<name>hamza2</name>
-	</user>
-</root>
-`, console.log)
+// let client = new basex.Session("localhost", 1984, "admin", "admin");
+// client.execute("create db user_db", console.log);
+// client.add("/users/users.xml", `
+// <root>
+// 	<user>
+// 		<id>admin</id>
+// 		<name>hamza</name>
+// 	</user>
+// 	<user>
+// 		<id>admin</id>
+// 		<name>hamza2</name>
+// 	</user>
+// </root>
+// `, console.log)
+// client.close()
 
-client.execute("create db project_db", console.log);
-client.execute("open project_db", console.log);
-client.add("/projects/projects.xml", `
+const client2 = new basex.Session("localhost", 1984, "admin", "admin");
+client2.execute("create db projects_db", console.log);
+// client.execute("open project_db", console.log);
+client2.add("/projects/projects.xml", `
 <root>
 	<project>
 		<id>permanent</id>
@@ -28,4 +30,4 @@ client.add("/projects/projects.xml", `
 	</project>
 </root>
 `, console.log)
-client.close()
+client2.close()

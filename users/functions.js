@@ -7,7 +7,7 @@ client.execute("open user_db", console.log);
 // IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
 
 const getUsers = async () => {
-	let res = await executeAsync("xquery /")
+	let res = await executeAsync(client, "xquery /")
 	res = res.result
 	// console.log(res)
 	const toXml = xmlToJs(res).root

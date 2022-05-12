@@ -2,64 +2,64 @@ const basex = require("basex")
 const { jsToXml, xmlToJs } = require("../utils/xml/convert")
 const client = new basex.Session("localhost", 1984, "admin", "admin");
 const { executeAsync } = require("../utils/wrappers")
-client.execute("open user_db", console.log);
+client.execute("open projects_db", console.log);
 
 // IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
 
 const getProjects = async () => {
-	let res = await executeAsync("xquery /")
+	let res = await executeAsync(client, "xquery /")
 	res = res.result
-	// console.log(res)
 	const toXml = xmlToJs(res).root
-	// console.log(toXml)
-	const users = toXml.user ? toXml.user : []
-	return users
+	// console.log(JSON.stringify(toXml, null, 4))
+	const projects = toXml.project ? toXml.project : []
+	return projects
 }
 
-const addProject = async (user) => {
-	let users = await getUsers();
-	if (users.map(u => u.id).filter(u => u == user.id).length === 0) {
-		users = [...users, user]
-		client.replace("/users/users.xml", jsToXml({
-			user: users
+const addProject = async (project) => {
+	let projects = await getProjects();
+	console.log(projects)
+	if (projects.map(p => p.id).filter(p => p == project.id).length === 0) {
+		projects = [...projects, project]
+		client.replace("/projects/projects.xml", jsToXml({
+			project: projects
 		}), console.log)
 	}
 }
 
-const updateProject = async (user) => {
-	let users = await getUsers();
-	users = users.map(u => {
-		if (user.id === u.id) {
-			return user;
+const updateProject = async (project) => {
+	let projects = await getProjects();
+	projects = projects.map(p => {
+		if (project.id === p.id) {
+			return project;
 		} else {
-			return u;
+			return p;
 		}
 	})
-	console.log(users)
-	client.replace("/users/users.xml", jsToXml({ user: users }), console.log)
+	console.log(projects)
+	client.replace("/projects/projects.xml", jsToXml({ project: projects }), console.log)
 }
 
-const deleteProject = async (userId) => {
-	let users = await getUsers();
-	users = users.filter(u => u.id !== userId);
-	client.replace("/users/users.xml", jsToXml({ user: users }), console.log)
+const deleteProject = async (projectId) => {
+	let projects = await getProjects();
+	projects = projects.filter(p => p.id !== projectId);
+	client.replace("/projects/projects.xml", jsToXml({ project: projects }), console.log)
 }
 
 const testing = async () => {
-	await addUser({
-		id: 3,
+	await addProject({
+		id: 1,
 		name: "hamza3"
 	})
-	await addUser({
-		id: 3,
+	await addProject({
+		id: 2,
 		name: "hamza3"
 	})
-	await updateUser({
-		id: 3,
+	await updateProject({
+		id: 2,
 		name: "hamza_mod"
 	})
-	// await deleteUser(3)
-	console.log(await getUsers())
+	await deleteProject(2)
+	console.log(await getProjects())
 }
 
 // testing();
