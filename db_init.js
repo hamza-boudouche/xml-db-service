@@ -13,4 +13,20 @@ client.add("/users/users.xml", `
 	</user>
 </root>
 `, console.log)
+// client.close()
+
+client.execute("create db project_db", console.log);
+client.execute("open project_db", console.log);
+client.add("/projects/projects.xml", `
+<root>
+	<project>
+		<id>permanent</id>
+		<name>permanent</name>
+	</project>
+	<project>
+		<id>permanent</id>
+		<name>permanent</name>
+	</project>
+</root>
+`, console.log)
 client.close()
