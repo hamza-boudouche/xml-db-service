@@ -26,8 +26,6 @@ const getUsers = async () => {
 
 const addUser = async (user) => {
 	let users = await getUsers();
-	// console.log(users)
-	// console.log(JSON.stringify(users, null, 2))
 	if (users.map(u => u.id).map(u => u == user.id).length === 0) {
 		users = [...users, user]
 		console.log("adding new")
@@ -69,7 +67,7 @@ const testing = async () => {
 		id: 3,
 		name: "hamza_mod"
 	})
-	// await deleteUser(3)
+	await deleteUser(3)
 	console.log(await getUsers())
 }
 
