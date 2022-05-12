@@ -1,16 +1,8 @@
 const basex = require("basex")
 const { jsToXml, xmlToJs } = require("../utils/xml/convert")
 const client = new basex.Session("localhost", 1984, "admin", "admin");
+const { executeAsync } = require("../utils/wrappers")
 client.execute("open user_db", console.log);
-
-const executeAsync = async (command) => {
-	return new Promise((resolve, reject) => {
-		client.execute(command, (err, res) => {
-			if (err) { reject(err) }
-			else { resolve(res) }
-		});
-	})
-}
 
 // IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
 
@@ -26,9 +18,8 @@ const getUsers = async () => {
 
 const addUser = async (user) => {
 	let users = await getUsers();
-	if (users.map(u => u.id).map(u => u == user.id).length === 0) {
+	if (users.map(u => u.id).filter(u => u == user.id).length === 0) {
 		users = [...users, user]
-		console.log("adding new")
 		client.replace("/users/users.xml", jsToXml({
 			user: users
 		}), console.log)
@@ -67,10 +58,10 @@ const testing = async () => {
 		id: 3,
 		name: "hamza_mod"
 	})
-	await deleteUser(3)
+	// await deleteUser(3)
 	console.log(await getUsers())
 }
 
-testing();
+// testing();
 
 module.exports = { addUser, updateUser, getUsers, deleteUser }
