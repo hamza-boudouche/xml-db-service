@@ -23,8 +23,8 @@ exports.updateUser = (req, res, next) => {
     fonctions.updateUser(req.body);
 }
 
-exports.getUsers = (req, res, next) => {
-    fonctions.getUsers(req.body.id);
+exports.getUsers = () => {
+    fonctions.getUsers;
 }
 
 exports.deleteUser = (req, res, next) => {
