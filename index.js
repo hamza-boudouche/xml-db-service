@@ -1,6 +1,7 @@
 const basex = require("basex")
 const { jsToXml, xmlToJs } = require("./utils/xml/convert")
 const functions = require("./users/functions")
+const { validate } = require("./utils/xml/validate")
 
 const http = require('http');
 const app = require('./app');

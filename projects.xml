@@ -1,4 +1,5 @@
-<root>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="projects.xsd">
 	<project>
 		<uid>1</uid>
 		<titre>hamza</titre>

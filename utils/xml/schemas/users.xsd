@@ -1,0 +1,28 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="user" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:integer" name="uid"/>
+              <xs:element type="xs:string" name="email"/>
+              <xs:element type="xs:string" name="displayName"/>
+              <xs:element type="xs:string" name="imageUrl"/>
+              <xs:element type="xs:string" name="type"/>
+              <xs:element type="xs:integer" name="mle" minOccurs="0"/>
+              <xs:element type="xs:string" name="niveauetudes" minOccurs="0"/>
+              <xs:element name="domainesexpertise" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="domaine" maxOccurs="unbounded" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

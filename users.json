@@ -1,0 +1,31 @@
+{
+	"uid": 1,
+	"email": "test@test",
+	"displayname": "hamza",
+	"imageurl": "http://url",
+	"type": "admin"
+}
+
+{
+	"uid": 1,
+	"email": "test@test",
+	"displayname": "hamza",
+	"imageurl": "http://url",
+	"type": "student",
+	"mle": 948856,
+	"niveauetudes": "BAC3"
+}
+
+{
+	"uid": 1,
+	"email": "test@test",
+	"displayname": "hamza",
+	"imageurl": "http://url",
+	"type": "prof",
+	"domainesexpertise": {
+		"domaine": [
+			"XML",
+			"WEB"
+		]
+	}
+}

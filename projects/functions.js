@@ -2,9 +2,9 @@ const basex = require("basex")
 const { jsToXml, xmlToJs } = require("../utils/xml/convert")
 const client = new basex.Session("localhost", 1984, "admin", "admin");
 const { executeAsync } = require("../utils/wrappers")
-client.execute("open projects_db", console.log);
+const { validate } = require("../utils/xml/validate")
 
-// IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
+client.execute("open projects_db", console.log);
 
 const getProjects = async () => {
 	let res = await executeAsync(client, "xquery /")
