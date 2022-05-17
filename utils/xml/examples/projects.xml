@@ -12,6 +12,12 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 				web
 			</motcle>
 		</motscles>
+		<comments>
+			<comment>
+				<prof>hamza</prof>
+				<contenu>contenu comment</contenu>
+			</comment>
+		</comments>
 		<versions>
 			<version>
 				<commentaire>something comment</commentaire>
@@ -24,6 +30,7 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 				<membres>
 					<membre>
 						<uid>1</uid>
+						<name>hamza boudouche</name>
 					</membre>
 				</membres>
 				<projects>
@@ -57,7 +64,20 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 			</version>
 		</versions>
 		<groupes>
-			<groupe></groupe>
+			<groupe>
+				<uid>1</uid>
+				<membres>
+					<membre>
+						<uid>1</uid>
+						<name>hamza boudouche</name>
+					</membre>
+				</membres>
+				<projects>
+					<project>
+						<uid>1</uid>
+					</project>
+				</projects>
+			</groupe>
 		</groupes>
 		<profId>1</profId>
 		<status>EN_COURS</status>

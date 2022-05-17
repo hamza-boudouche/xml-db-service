@@ -6,13 +6,13 @@ const { validate } = require("../utils/xml/validate")
 
 client.execute("open projects_db", console.log);
 
-const getProjectsXML = async () => {
-	let res = await executeAsync(client, "xquery /")
+const getProjectsXML = async (query = "") => {
+	let res = await executeAsync(client, `xquery /${query}`)
 	return res.result
 }
 
-const getProjects = async () => {
-	const res = await getProjectsXML();
+const getProjects = async (query = "") => {
+	const res = await getProjectsXML(query);
 	const toXml = xmlToJs(res).root
 	// console.log(JSON.stringify(toXml, null, 4))
 	const projects = toXml.project ? toXml.project : []
@@ -62,6 +62,37 @@ const deleteProject = async (projectId) => {
 	} else {
 		throw new Error("unvalidated schema projects.xsd")
 	}
+}
+
+const getProjectsByKeyword = async (keyword) => {
+	keyword = keyword.toUpperCase()
+	const projects = await getProjects(`/root/project[motscles/motcle[text() = '${keyword}']]`);
+	return projects;
+}
+
+const getProjectsByType = async (type) => {
+	keyword = keyword.toUpperCase()
+	const projects = await getProjects(`root/project[type = '${type}']`);
+	return projects;
+}
+
+const getProjectsByName = async (name) => {
+	keyword = keyword.toLowerCase()
+	const projects = await getProjects(`root/project[groupes/groupe/membres/membre/name[text() = '${keyword}']]`);
+	return projects
+}
+
+const commentProject = async (prof, projectId, contenu) => {
+	let projects = await getProject()
+	projects = projects.map(project => {
+		if (projectId === project.uid) {
+			project.comments.comment.push({
+				prof,
+				contenu
+			})
+		}
+		return project
+	})
 }
 
 // const testing = async () => {
