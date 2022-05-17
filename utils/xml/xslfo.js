@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const generatePdf = (xmlFile, xslFile, outputFile) => {
-	const ls = spawn("fop", ["-xml", path.join(__dirname, `../../out/xml/${xmlFile}`), "-xsl", path.join(__dirname, `/${xslFile}`), "-pdf", path.join(__dirname, `/${outputFile}`)]);
+	const ls = spawn("fop", ["-xml", path.join(__dirname, `../../out/xml/${xmlFile}`), "-xsl", path.join(__dirname, `./xsl/${xslFile}`), "-pdf", path.join(__dirname, `../../out/pdf/${outputFile}`)]);
 
 	return new Promise((resolve, reject) => {
 		ls.on('error', (error) => {
@@ -34,4 +34,14 @@ const clearOutFolders = () => {
 	});
 }
 
-module.exports = { generatePdf, saveXmlFile, clearOutFolders }
+const sendPdf = (res, fileName) => {
+	const file = fs.createReadStream(path.join(__dirname, `../../out/pdf/${fileName}`));
+	const stat = fs.statSync(path.join(__dirname, `../../out/pdf/${fileName}`));
+	res.setHeader('Content-Length', stat.size);
+	res.setHeader('Content-Type', 'application/pdf');
+	res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
+	file.pipe(res);
+	res.end();
+}
+
+module.exports = { generatePdf, saveXmlFile, clearOutFolders, sendPdf }

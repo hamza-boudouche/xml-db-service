@@ -6,9 +6,13 @@ const { validate } = require("../utils/xml/validate")
 
 client.execute("open projects_db", console.log);
 
-const getProjects = async () => {
+const getProjectsXML = async () => {
 	let res = await executeAsync(client, "xquery /")
-	res = res.result
+	return res.result
+}
+
+const getProjects = async () => {
+	const res = await getProjectsXML();
 	const toXml = xmlToJs(res).root
 	// console.log(JSON.stringify(toXml, null, 4))
 	const projects = toXml.project ? toXml.project : []
@@ -20,9 +24,14 @@ const addProject = async (project) => {
 	console.log(projects)
 	if (projects.map(p => p.id).filter(p => p == project.id).length === 0) {
 		projects = [...projects, project]
-		client.replace("/projects/projects.xml", jsToXml({
+		const xml = jsToXml({
 			project: projects
-		}), console.log)
+		})
+		if (await validate(xml, "projects.xsd")) {
+			client.replace("/projects/projects.xml", xml, console.log)
+		} else {
+			throw new Error("unvalidated schema projects.xsd")
+		}
 	}
 }
 
@@ -36,13 +45,23 @@ const updateProject = async (project) => {
 		}
 	})
 	console.log(projects)
-	client.replace("/projects/projects.xml", jsToXml({ project: projects }), console.log)
+	const xml = jsToXml({ project: projects })
+	if (await validate(xml, "projects.xsd")) {
+		client.replace("/projects/projects.xml", xml, console.log)
+	} else {
+		throw new Error("unvalidated schema projects.xsd")
+	}
 }
 
 const deleteProject = async (projectId) => {
 	let projects = await getProjects();
 	projects = projects.filter(p => p.id !== projectId);
-	client.replace("/projects/projects.xml", jsToXml({ project: projects }), console.log)
+	const xml = jsToXml({ project: projects })
+	if (await validate(xml, "projects.xsd")) {
+		client.replace("/projects/projects.xml", xml, console.log)
+	} else {
+		throw new Error("unvalidated schema projects.xsd")
+	}
 }
 
 // const testing = async () => {
@@ -61,7 +80,6 @@ const deleteProject = async (projectId) => {
 // 	await deleteProject(2)
 // 	console.log(await getProjects())
 // }
-
 // testing();
 
-module.exports = { addProject, updateProject, getProjects, deleteProject }
+module.exports = { getProjectsXML, addProject, updateProject, getProjects, deleteProject }

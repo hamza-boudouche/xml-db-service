@@ -2,13 +2,19 @@ const basex = require("basex")
 const { jsToXml, xmlToJs } = require("../utils/xml/convert")
 const client = new basex.Session("localhost", 1984, "admin", "admin");
 const { executeAsync } = require("../utils/wrappers")
+const { validate } = require("../utils/xml/validate")
+
 client.execute("open user_db", console.log);
 
 // IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
 
-const getUsers = async () => {
+const getUsersXML = async () => {
 	let res = await executeAsync(client, "xquery /")
-	res = res.result
+	return res.result
+}
+
+const getUsers = async () => {
+	const res = await getUsersXML();
 	// console.log(res)
 	const toXml = xmlToJs(res).root
 	// console.log(toXml)
@@ -20,9 +26,14 @@ const addUser = async (user) => {
 	let users = await getUsers();
 	if (users.map(u => u.id).filter(u => u == user.id).length === 0) {
 		users = [...users, user]
-		client.replace("/users/users.xml", jsToXml({
+		const xml = jsToXml({
 			user: users
-		}), console.log)
+		})
+		if (await validate(xml, "users.xsd")) {
+			client.replace("/users/users.xml", xml, console.log)
+		} else {
+			throw new Error("unvalidated schema users.xsd")
+		}
 	}
 }
 
@@ -36,13 +47,27 @@ const updateUser = async (user) => {
 		}
 	})
 	console.log(users)
-	client.replace("/users/users.xml", jsToXml({ user: users }), console.log)
+	const xml = jsToXml({
+		user: users
+	})
+	if (await validate(xml, "users.xsd")) {
+		client.replace("/users/users.xml", xml, console.log)
+	} else {
+		throw new Error("unvalidated schema users.xsd")
+	}
 }
 
 const deleteUser = async (userId) => {
 	let users = await getUsers();
 	users = users.filter(u => u.id !== userId);
-	client.replace("/users/users.xml", jsToXml({ user: users }), console.log)
+	const xml = jsToXml({
+		user: users
+	})
+	if (await validate(xml, "users.xsd")) {
+		client.replace("/users/users.xml", xml, console.log)
+	} else {
+		throw new Error("unvalidated schema users.xsd")
+	}
 }
 
 // const testing = async () => {
@@ -64,4 +89,4 @@ const deleteUser = async (userId) => {
 
 // testing();
 
-module.exports = { addUser, updateUser, getUsers, deleteUser }
+module.exports = { getUsersXML, addUser, updateUser, getUsers, deleteUser }

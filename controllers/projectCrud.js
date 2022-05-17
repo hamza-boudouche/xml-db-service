@@ -1,22 +1,30 @@
 //Contenir la logique métier 
-const fonctions = require('../projects/functions');
+const functions = require('../projects/functions');
+const { generatePdf, saveXmlFile, clearOutFolders, sendPdf } = require("../utils/xml/xslfo")
 
 exports.addProject = async (req, res, next) => {
-    await fonctions.addProject(req.body);
+    await functions.addProject(req.body);
     res.json(req.body);
 }
 
 exports.updateProject = async (req, res, next) => {
-    await fonctions.updateProject(req.body);
+    await functions.updateProject(req.body);
     res.json(req.body);
 }
 
 exports.getProjects = async (req, res) => {
-    const projects = await fonctions.getProjects();
+    const projects = await functions.getProjects();
     res.json(projects);
 }
 
 exports.deleteProject = async (req, res, next) => {
-    await fonctions.deleteProject(req.body.id);
+    await functions.deleteProject(req.body.id);
     res.json({ id: req.body.id })
+}
+
+exports.generateReport = async (req, res, next) => {
+    await saveXmlFile(await functions.getProjectsXML(), "out.xml")
+    await generatePdf("out.xml", "projects.xsl", "projects.pdf")
+    sendPdf(res, "projects.pdf");
+    await clearOutFolders();
 }
