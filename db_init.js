@@ -4,12 +4,16 @@ client.execute("create db user_db", console.log);
 client.add("/users/users.xml", `
 <root>
 	<user>
-		<id>admin</id>
-		<name>hamza</name>
+		<uid>admin</uid>
+		<email>admin</email>
+		<displayName>hamza</displayName>
+		<imageUrl>hamza</imageUrl>
 	</user>
 	<user>
-		<id>admin</id>
-		<name>hamza2</name>
+		<uid>admin</uid>
+		<email>admin</email>
+		<displayName>hamza</displayName>
+		<imageUrl>hamza</imageUrl>
 	</user>
 </root>
 `, console.log)

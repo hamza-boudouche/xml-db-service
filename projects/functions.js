@@ -82,17 +82,18 @@ const getProjectsByName = async (name) => {
 	return projects
 }
 
-const commentProject = async (prof, projectId, contenu) => {
+const commentProject = async (profId, projectId, contenu) => {
 	let projects = await getProject()
 	projects = projects.map(project => {
 		if (projectId === project.uid) {
 			project.comments.comment.push({
-				prof,
+				profId,
 				contenu
 			})
 		}
 		return project
 	})
+
 }
 
 // const testing = async () => {
