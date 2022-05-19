@@ -22,7 +22,7 @@ exports.deleteProject = async (req, res, next) => {
     res.json({ id: req.body.id })
 }
 
-exports.generateReport = async (req, res, next) => {
+exports.generateReportProjects = async (req, res, next) => {
     await saveXmlFile(await functions.getProjectsXML(), "out.xml")
     await generatePdf("out.xml", "projects.xsl", "projects.pdf")
     sendPdf(res, "projects.pdf");
