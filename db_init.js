@@ -32,10 +32,10 @@ client2.add("/projects/projects.xml", `
 	<note>20</note>
 	<motscles>
 		<motcle>
-			Java
+			JAVA
 		</motcle>
 		<motcle>
-			web
+			WEB
 		</motcle>
 	</motscles>
 	<comments>
@@ -78,10 +78,10 @@ client2.add("/projects/projects.xml", `
 	<note>20</note>
 	<motscles>
 		<motcle>
-			Java
+			JAVA
 		</motcle>
 		<motcle>
-			web
+			XML
 		</motcle>
 	</motscles>
 	<comments>
