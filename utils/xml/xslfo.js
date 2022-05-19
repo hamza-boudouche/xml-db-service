@@ -17,12 +17,14 @@ const generatePdf = (xmlFile, xslFile, outputFile) => {
 }
 
 const saveXmlFile = async (xml, outputFile) => {
-	await fs.writeFile(path.join(path.dirname, "../../out/xml", outputFile), outputFile);
+	console.log(outputFile)
+	await fs.writeFile(path.join(__dirname, "../../out/xml", outputFile), outputFile);
 }
 
 const clearOutFolders = () => {
+	console.log("hello world")
 	return new Promise((resolve, reject) => {
-		exec(`rm ${path.join(__dirname, "../../out/pdf")}/* ; rm ${path.join(__dirname, "../../out/xml")}/*`, (error, stdout, stderr) => {
+		exec(`del ${path.join(__dirname, "../../out/pdf/*")} ; del ${path.join(__dirname, "../../out/xml/*")}`, (error, stdout, stderr) => {
 			if (error) {
 				reject(error.message);
 			}
@@ -43,5 +45,16 @@ const sendPdf = (res, fileName) => {
 	file.pipe(res);
 	res.end();
 }
+
+(async () => {
+	const ls = spawn("rm", [path.join(__dirname, "../../out/pdf/*")]);
+
+	ls.on('error', (error) => {
+		console.log("error", error);
+	});
+	ls.on("close", code => {
+		console.log("code", code);
+	});
+})();
 
 module.exports = { generatePdf, saveXmlFile, clearOutFolders, sendPdf }
