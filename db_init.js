@@ -5,10 +5,14 @@ client.add("/users/users.xml", `
 <root>
 	<user>
 		<uid>1</uid>
-		<email>hamza</email>
 		<displayName>hamzaAdmin</displayName>
 		<imageUrl>hamza</imageUrl>
+		<mle>123444</mle>
 		<type>admin</type>
+		<email>hamza</email>
+		
+		
+		
 	</user>
 
 	<user>

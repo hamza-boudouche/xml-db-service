@@ -6,12 +6,12 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:integer" name="uid"/>
-              <xs:element type="xs:string" name="email"/>
               <xs:element type="xs:string" name="displayName"/>
               <xs:element type="xs:string" name="imageUrl"/>
-              <xs:element type="xs:string" name="type"/>
               <xs:element type="xs:integer" name="mle" minOccurs="0"/>
+              <xs:element type="xs:string" name="type"/>
               <xs:element type="xs:string" name="niveauetudes" minOccurs="0"/>
+              <xs:element type="xs:string" name="email"/>    
               <xs:element name="domainesexpertise" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
