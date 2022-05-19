@@ -37,6 +37,7 @@
                   <xs:element name="version">
                     <xs:complexType>
                       <xs:sequence>
+                        <xs:element type="xs:byte" name="numero"/>
                         <xs:element type="xs:string" name="commentaire"/>
                         <xs:element type="xs:string" name="contenu"/>
                       </xs:sequence>

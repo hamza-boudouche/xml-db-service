@@ -24,8 +24,9 @@ const getUsers = async () => {
 
 const addUser = async (user) => {
 	let users = await getUsers();
-	if (users.map(u => u.id).filter(u => u == user.id).length === 0) {
+	if (users.map(u => u.uid).filter(u => u == user.uid).length === 0) {
 		users = [...users, user]
+		console.log(users)
 		const xml = jsToXml({
 			user: users
 		})
@@ -40,7 +41,7 @@ const addUser = async (user) => {
 const updateUser = async (user) => {
 	let users = await getUsers();
 	users = users.map(u => {
-		if (user.id === u.id) {
+		if (user.uid === u.uid) {
 			return user;
 		} else {
 			return u;
@@ -59,7 +60,7 @@ const updateUser = async (user) => {
 
 const deleteUser = async (userId) => {
 	let users = await getUsers();
-	users = users.filter(u => u.id !== userId);
+	users = users.filter(u => u.uid !== userId);
 	const xml = jsToXml({
 		user: users
 	})

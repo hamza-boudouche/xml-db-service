@@ -20,6 +20,7 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		</comments>
 		<versions>
 			<version>
+				<numero>1</numero>
 				<commentaire>something comment</commentaire>
 				<contenu>nameOfFile.pdf</contenu>
 			</version>
@@ -59,6 +60,7 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		</motscles>
 		<versions>
 			<version>
+				<numero>1</numero>
 				<commentaire>something comment 2</commentaire>
 				<contenu>nameOfFile2.pdf</contenu>
 			</version>

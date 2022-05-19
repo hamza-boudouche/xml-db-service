@@ -7,13 +7,13 @@ const projectCrud = require('../controllers/projectCrud.js');
 //Indiquer à l'application la fonction à executer quand elle reçoit une requete http.
 
 //get all users
-router.get('/all', projectCrud.getProjects);
+router.get('/', projectCrud.getProjects);
 
 //updating
-router.put('/update', projectCrud.updateProject)
+router.put('/', projectCrud.updateProject)
 
 //Adding a user
-router.post('/project', projectCrud.addProject);
+router.post('/', projectCrud.addProject);
 
 //Deleting a user
 router.delete('/', projectCrud.deleteProject);
@@ -21,7 +21,7 @@ router.delete('/', projectCrud.deleteProject);
 //Generating a pdf
 
 
-router.get('/keyword', projectCrud.getProjectsByKeyword);
+router.get('/keyword/', projectCrud.getProjectsByKeyword);
 router.get('/type', projectCrud.getProjectsByType);
 router.get('/name', projectCrud.getProjectsByName);
 
