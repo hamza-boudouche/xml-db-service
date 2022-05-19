@@ -26,9 +26,5 @@ xsi:noNamespaceSchemaLocation="../schemas/users.xsd">
 		<displayName>hamza</displayName>
 		<imageUrl>hamza</imageUrl>
 		<type>prof</type>
-		<domainesexpertise>
-			<domaine>XML</domaine>
-			<domaine>WEB</domaine>
-		</domainesexpertise>
 	</user>
 </root>

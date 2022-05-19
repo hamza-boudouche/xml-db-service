@@ -14,11 +14,17 @@ const getProjectsXML = async (query = "") => {
 const getProjects = async (query = "") => {
 	const res = await getProjectsXML(query);
 	// console.log("res:", res)
-	console.log(query)
+	// console.log(query)
 	const toXml = xmlToJs(res).root
 	// console.log(JSON.stringify(toXml, null, 4))
 	const projects = toXml.project ? toXml.project : []
 	return projects
+}
+
+const getProjectById = async (uid) => {
+	const projects = await getProjects();
+	console.log(projects.find(project => { return project.uid == uid }))
+	return projects.find(project => { return project.uid == uid })
 }
 
 const addProject = async (project) => {
@@ -87,27 +93,36 @@ const getProjectsByType = async (type) => {
 
 const getProjectsByName = async (titre) => {
 	titre = titre.toLowerCase()
-	const projectsFiltered = await getProjects(`root[project/groupes/groupe/membres/membre[name = '${keyword}']]`);
-	let projects = await getProjects() || projectsFiltered;
+	let projects = await getProjects();
 	projects = projects.filter(project =>
 		project.titre === titre)
 	return projects;
 }
 
-const commentProject = async (profId, projectId, contenu) => {
-	let projects = await getProject()
-	projects = projects.map(project => {
+const commentVersion = async (profId, projectId, versionId, contenu) => {
+	const projects = await getProjects()
+	projects.forEach(project => {
 		if (projectId === project.uid) {
-			project.comments.comment.push({
-				profId,
-				contenu
+			project.versions.version.forEach(version => {
+				console.log(version.comments)
+				console.log("version uid", version.uid)
+				console.log("versionId", versionId)
+				if (version.uid == versionId) {
+					console.log("found")
+					version.comments.comment.push({
+						prof: profId,
+						contenu
+					})
+				}
 			})
+			// console.log(JSON.stringify(project.versions.version, null, 2));
+			updateProject(project)
 		}
 		return project
 	})
 }
 
-// (async () => {
+// (async () => { 
 // 	console.log('working');
 // 	const projects = await getProjectsByKeyword("XML");
 // 	console.log(projects)
@@ -132,4 +147,4 @@ const commentProject = async (profId, projectId, contenu) => {
 // }
 // testing();
 
-module.exports = { getProjectsXML, addProject, updateProject, getProjects, deleteProject, getProjectsByKeyword, getProjectsByType, getProjectsByName, commentProject }
+module.exports = { getProjectById, getProjectsXML, addProject, updateProject, getProjects, deleteProject, getProjectsByKeyword, getProjectsByType, getProjectsByName, commentVersion }

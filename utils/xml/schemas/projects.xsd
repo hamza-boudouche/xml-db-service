@@ -6,10 +6,11 @@
     <xs:sequence>
       <xs:element name="project" maxOccurs="unbounded" minOccurs="0">
         <xs:complexType>
-          <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
             <xs:element type="xs:byte" name="uid"/>
             <xs:element type="xs:string" name="titre"/>
             <xs:element type="xs:byte" name="note"/>
+            <xs:element type="xs:string" name="description"/>
             <xs:element name="motscles">
               <xs:complexType>
                 <xs:sequence>
@@ -20,7 +21,7 @@
             <xs:element name="comments">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="comment">
+                  <xs:element name="comment" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
                         <xs:element type="xs:string" name="prof"/>
@@ -34,11 +35,25 @@
             <xs:element name="versions">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="version">
+                  <xs:element name="version" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
+                        <xs:element type="xs:byte" name="uid"/>
                         <xs:element type="xs:byte" name="numero"/>
-                        <xs:element type="xs:string" name="commentaire"/>
+                        <xs:element name="comments">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="comment" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element type="xs:string" name="prof"/>
+                                    <xs:element type="xs:string" name="contenu"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
                         <xs:element type="xs:string" name="contenu"/>
                       </xs:sequence>
                     </xs:complexType>
@@ -46,50 +61,17 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="groupes">
+            <xs:element name="membres">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="groupe">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element type="xs:byte" name="uid"/>
-                        <xs:element name="membres">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name="membre">
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element type="xs:byte" name="uid"/>
-                                    <xs:element type="xs:string" name="name"/>
-                                  </xs:sequence>
-                                </xs:complexType>
-                              </xs:element>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                        <xs:element name="projects" minOccurs="0">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name="project">
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element type="xs:byte" name="uid"/>
-                                  </xs:sequence>
-                                </xs:complexType>
-                              </xs:element>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
+                  <xs:element type="xs:byte" name="uid" maxOccurs="unbounded" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
             <xs:element type="xs:byte" name="profId"/>
             <xs:element type="xs:string" name="status"/>
             <xs:element type="xs:string" name="type"/>
-          </xs:sequence>
+          </xs:choice>
         </xs:complexType>
       </xs:element>
     </xs:sequence>

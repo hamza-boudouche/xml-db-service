@@ -20,16 +20,11 @@ router.delete('/', projectCrud.deleteProject);
 
 //Generating a pdf
 
-
 router.get('/keyword/', projectCrud.getProjectsByKeyword);
 router.get('/type', projectCrud.getProjectsByType);
 router.get('/name', projectCrud.getProjectsByName);
-
-router.post('/comment', projectCrud.commentProject);
-
+router.post('/comment', projectCrud.commentVersion);
 router.get('/rapport', projectCrud.generateReportProjects);
-
-
-
+router.get('/id', projectCrud.getProjectById)
 
 module.exports = router;

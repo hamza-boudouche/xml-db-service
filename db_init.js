@@ -5,17 +5,28 @@ client.add("/users/users.xml", `
 <root>
 	<user>
 		<uid>1</uid>
-		<email>admin</email>
-		<displayName>hamza</displayName>
+		<email>hamza</email>
+		<displayName>hamzaAdmin</displayName>
 		<imageUrl>hamza</imageUrl>
 		<type>admin</type>
 	</user>
+
 	<user>
 		<uid>2</uid>
-		<email>admin</email>
+		<email>hamza</email>
 		<displayName>hamza</displayName>
 		<imageUrl>hamza</imageUrl>
-		<type>admin</type>
+		<type>student</type>
+		<mle>61947</mle>
+		<niveauetudes>BAC3</niveauetudes>
+	</user>
+
+	<user>
+		<uid>3</uid>
+		<email>hamza</email>
+		<displayName>hamza</displayName>
+		<imageUrl>hamza</imageUrl>
+		<type>prof</type>
 	</user>
 </root>
 `, console.log)
@@ -26,10 +37,11 @@ client2.execute("create db projects_db", console.log);
 // client.execute("open project_db", console.log);
 client2.add("/projects/projects.xml", `
 <root>
-	<project>
+<project>
 	<uid>1</uid>
-	<titre>projet 1</titre>
+	<titre>projet-1</titre>
 	<note>20</note>
+	<description>this is a description</description>
 	<motscles>
 		<motcle>
 			JAVA
@@ -43,30 +55,47 @@ client2.add("/projects/projects.xml", `
 			<prof>prof1</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
+		<comment>
+			<prof>prof2</prof>
+			<contenu>contenu comment</contenu>
+		</comment>
 	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet1version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet1version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-			<projects>
-				<project>
-					<uid>1</uid>
-				</project>
-			</projects>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
 	<type>PROJET_INTEGRE</type>
@@ -74,8 +103,9 @@ client2.add("/projects/projects.xml", `
 
 	<project>
 	<uid>2</uid>
-	<titre>projet 2</titre>
+	<titre>projet-2</titre>
 	<note>20</note>
+	<description>this is a description</description>
 	<motscles>
 		<motcle>
 			JAVA
@@ -89,25 +119,47 @@ client2.add("/projects/projects.xml", `
 			<prof>prof1</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
+		<comment>
+			<prof>prof1</prof>
+			<contenu>contenu comment</contenu>
+		</comment>
 	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet2version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet2version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
 	<type>PROJET_INTEGRE</type>
@@ -115,7 +167,8 @@ client2.add("/projects/projects.xml", `
 
 	<project>
 	<uid>3</uid>
-	<titre>projet 3</titre>
+	<titre>projet-3</titre>
+	<description>this is a description</description>
 	<note>20</note>
 	<motscles>
 		<motcle>
@@ -125,39 +178,47 @@ client2.add("/projects/projects.xml", `
 			NODEJS
 		</motcle>
 	</motscles>
-	<comments>
-		<comment>
-			<prof>prof1</prof>
-			<contenu>contenu comment</contenu>
-		</comment>
-	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet1version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet1version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-			<projects>
-				<project>
-					<uid>1</uid>
-				</project>
-			</projects>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
-	<type>PROJET_INTEGRE</type>
+	<type>PFE</type>
 	</project>
 </root>
+
 `, console.log)
 client2.close()
