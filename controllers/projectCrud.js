@@ -18,8 +18,8 @@ exports.getProjects = async (req, res) => {
 }
 
 exports.deleteProject = async (req, res, next) => {
-    await functions.deleteProject(req.body.id);
-    res.json({ id: req.body.id })
+    await functions.deleteProject(req.body.uid);
+    res.json({ uid: req.body.uid })
 }
 
 exports.generateReportProjects = async (req, res, next) => {
@@ -30,24 +30,25 @@ exports.generateReportProjects = async (req, res, next) => {
 }
 
 exports.getProjectsByKeyword = async (req, res, next) => {
-    await functions.getProjectsByKeyword(req.query.keyword);
-    res.json({keyword: req.query.keyword});
+    const projects = await functions.getProjectsByKeyword(req.query.keyword);
+    res.json(projects);
 }
 
 exports.getProjectsByType = async (req, res, next) => {
-    await functions.getProjectsByType(req.query.type);
-    res.json({type: req.query.type});
+    const projects = await functions.getProjectsByType(req.query.type);
+    res.json(projects);
 }
 
 exports.getProjectsByName = async (req, res, next) => {
-    await functions.getProjectsByName(req.query.name);
-    res.json({type: req.query.name});
+    const projects = await functions.getProjectsByName(req.query.name);
+    res.json(projects);
 }
 
 exports.commentProject = async (req, res, next) => {
     await functions.commentProject(req.body.profId, req.body.projectId, req.body.contenu);
-    res.json({profId: req.body.name,
+    res.json({
+        profId: req.body.name,
         projectId: req.body.projectId,
-        contenu: req.body.contenu});
-
+        contenu: req.body.contenu
+    });
 }

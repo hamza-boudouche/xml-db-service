@@ -8,23 +8,13 @@ client.execute("open projects_db", console.log);
 
 const getProjectsXML = async (query = "") => {
 	let res = await executeAsync(client, `xquery /${query}`)
-	console.log("res:", res)
 	return res.result
 }
 
-(async () => {
-	console.log('working');
-	// const query = "/root/project[motscles/motcle[text() = 'JAVA']]"
-	const query = "/root/project[motscles[motcle = 'JAVA']]"
-	// const res = await executeAsync(client, `xquery /${query}`)
-	const res = await getProjectsXML(query)
-	console.log("res:", res)
-})();
-
 const getProjects = async (query = "") => {
 	const res = await getProjectsXML(query);
-	console.log(query)
 	// console.log("res:", res)
+	console.log(query)
 	const toXml = xmlToJs(res).root
 	// console.log(JSON.stringify(toXml, null, 4))
 	const projects = toXml.project ? toXml.project : []
@@ -78,20 +68,30 @@ const deleteProject = async (projectId) => {
 
 const getProjectsByKeyword = async (keyword) => {
 	keyword = keyword.toUpperCase()
-	const projects = await getProjects(`/root/project[motscles[motcle = '${keyword}']]`);
+	console.log("keyword", keyword)
+	let projectsFiltered = await getProjects(`/root[project/motscles[motcle = '${keyword}']]`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.motscles.motcle.indexOf(keyword) !== -1)
 	return projects;
 }
 
 const getProjectsByType = async (type) => {
-	keyword = keyword.toUpperCase()
-	const projects = await getProjects(`root/project[type = '${type}']`);
+	type = type.toUpperCase()
+	const projectsFiltered = await getProjects(`root[project/type = '${type}']`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.type === type)
 	return projects;
 }
 
-const getProjectsByName = async (name) => {
-	keyword = keyword.toLowerCase()
-	const projects = await getProjects(`root/project[groupes/groupe/membres/membre[name = '${keyword}']]`);
-	return projects
+const getProjectsByName = async (titre) => {
+	titre = titre.toLowerCase()
+	const projectsFiltered = await getProjects(`root[project/groupes/groupe/membres/membre[name = '${keyword}']]`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.titre === titre)
+	return projects;
 }
 
 const commentProject = async (profId, projectId, contenu) => {
@@ -105,8 +105,14 @@ const commentProject = async (profId, projectId, contenu) => {
 		}
 		return project
 	})
-
 }
+
+// (async () => {
+// 	console.log('working');
+// 	const projects = await getProjectsByKeyword("XML");
+// 	console.log(projects)
+// 	projects.forEach(project => console.log(project.motscles))
+// })();
 
 // const testing = async () => {
 // 	await addProject({
