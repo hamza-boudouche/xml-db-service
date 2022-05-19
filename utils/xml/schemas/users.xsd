@@ -6,7 +6,6 @@
           <xs:complexType>
             <xs:all>
               <xs:element type="xs:integer" name="uid"/>
-              <xs:element type="xs:string" name="email"/>
               <xs:element type="xs:string" name="displayName"/>
               <xs:element type="xs:string" name="imageUrl"/>
               <xs:element type="xs:integer" name="mle" minOccurs="0"/>

@@ -18,6 +18,6 @@ exports.getUsers = async (req, res) => {
 }
 
 exports.deleteUser = async (req, res, next) => {
-    await fonctions.deleteUser(req.body.uid);
-    res.json({ id: req.body.uid })
+    await fonctions.deleteUser(req.params.uid);
+    res.json({ id: req.params.uid })
 }
