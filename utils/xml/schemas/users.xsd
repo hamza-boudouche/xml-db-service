@@ -4,8 +4,9 @@
       <xs:sequence>
         <xs:element name="user" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
-            <xs:sequence>
-              <xs:element type="xs:string" name="uid"/>
+            <xs:all>
+              <xs:element type="xs:integer" name="uid"/>
+              <xs:element type="xs:string" name="email"/>
               <xs:element type="xs:string" name="displayName"/>
               <xs:element type="xs:string" name="imageUrl"/>
               <xs:element type="xs:integer" name="mle" minOccurs="0"/>
@@ -19,7 +20,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-            </xs:sequence>
+            </xs:all>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
