@@ -25,8 +25,18 @@ client2.execute("create db projects_db", console.log);
 client2.add("/projects/projects.xml", `
 <root>
 	<project>
-		<id>permanent</id>
-		<name>permanent</name>
+		<uid>permanent</uid>
+		<titre>permanent</titre>
+		<note>permanent</note>
+		<motscles>
+			<motcle></motcle>
+		</motscles>
+		<comments>
+			<comment>
+				<prof></prof>
+				<contenu></contenu>
+			</comment>
+		</comments>
 	</project>
 	<project>
 		<id>permanent</id>
