@@ -34,7 +34,7 @@ const getProjects = async (query = "") => {
 const addProject = async (project) => {
 	let projects = await getProjects();
 	console.log(projects)
-	if (projects.map(p => p.id).filter(p => p == project.id).length === 0) {
+	if (projects.map(p => p.uid).filter(p => p == project.uid).length === 0) {
 		projects = [...projects, project]
 		const xml = jsToXml({
 			project: projects
@@ -50,7 +50,7 @@ const addProject = async (project) => {
 const updateProject = async (project) => {
 	let projects = await getProjects();
 	projects = projects.map(p => {
-		if (project.id === p.id) {
+		if (project.uid === p.uid) {
 			return project;
 		} else {
 			return p;
@@ -67,7 +67,7 @@ const updateProject = async (project) => {
 
 const deleteProject = async (projectId) => {
 	let projects = await getProjects();
-	projects = projects.filter(p => p.id !== projectId);
+	projects = projects.filter(p => p.uid !== projectId);
 	const xml = jsToXml({ project: projects })
 	if (await validate(xml, "projects.xsd")) {
 		client.replace("/projects/projects.xml", xml, console.log)

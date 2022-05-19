@@ -5,12 +5,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		<titre>hamza</titre>
 		<note>19</note>
 		<motscles>
-			<motcle>
-				Java
-			</motcle>
-			<motcle>
-				web
-			</motcle>
+			<motcle>Java</motcle>
+			<motcle>web</motcle>
 		</motscles>
 		<comments>
 			<comment>

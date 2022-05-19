@@ -27,90 +27,87 @@ client2.execute("create db projects_db", console.log);
 client2.add("/projects/projects.xml", `
 <root>
 	<project>
-	<uid>1</uid>
-	<titre>projet 1</titre>
-	<note>20</note>
-	<motscles>
-		<motcle>
-			JAVA
-		</motcle>
-		<motcle>
-			WEB
-		</motcle>
-	</motscles>
-	<comments>
-		<comment>
-			<prof>prof1</prof>
-			<contenu>contenu comment</contenu>
-		</comment>
-	</comments>
-	<versions>
-		<version>
-			<numero>1</numero>
-			<commentaire>something comment</commentaire>
-			<contenu>projet1version1.pdf</contenu>
-		</version>
-	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-			<projects>
-				<project>
-					<uid>1</uid>
-				</project>
-			</projects>
-		</groupe>
-	</groupes>
-	<profId>2</profId>
-	<status>FINI</status>
-	<type>PROJET_INTEGRE</type>
+		<uid>1</uid>
+		<titre>projet 1</titre>
+		<note>20</note>
+		<motscles>
+			<motcle>JAVA</motcle>
+			<motcle>WEB</motcle>
+		</motscles>
+		<comments>
+			<comment>
+				<prof>prof1</prof>
+				<contenu>contenu comment</contenu>
+			</comment>
+		</comments>
+		<versions>
+			<version>
+				<numero>1</numero>
+				<commentaire>something comment</commentaire>
+				<contenu>projet1version1.pdf</contenu>
+			</version>
+		</versions>
+		<groupes>
+			<groupe>
+				<uid>1</uid>
+				<membres>
+					<membre>
+						<uid>1</uid>
+						<name>hamza boudouche</name>
+					</membre>
+				</membres>
+				<projects>
+					<project>
+						<uid>1</uid>
+					</project>
+				</projects>
+			</groupe>
+		</groupes>
+		<profId>2</profId>
+		<status>FINI</status>
+		<type>PROJET_INTEGRE</type>
 	</project>
 
 	<project>
-	<uid>2</uid>
-	<titre>projet 2</titre>
-	<note>20</note>
-	<motscles>
-		<motcle>
-			JAVA
-		</motcle>
-		<motcle>
-			XML
-		</motcle>
-	</motscles>
-	<comments>
-		<comment>
-			<prof>prof1</prof>
-			<contenu>contenu comment</contenu>
-		</comment>
-	</comments>
-	<versions>
-		<version>
-			<numero>1</numero>
-			<commentaire>something comment</commentaire>
-			<contenu>projet2version1.pdf</contenu>
-		</version>
-	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-		</groupe>
-	</groupes>
-	<profId>2</profId>
-	<status>FINI</status>
-	<type>PROJET_INTEGRE</type>
+		<uid>2</uid>
+		<titre>projet 1</titre>
+		<note>20</note>
+		<motscles>
+			<motcle>JAVA</motcle>
+			<motcle>WEB</motcle>
+		</motscles>
+		<comments>
+			<comment>
+				<prof>prof1</prof>
+				<contenu>contenu comment</contenu>
+			</comment>
+		</comments>
+		<versions>
+			<version>
+				<numero>1</numero>
+				<commentaire>something comment</commentaire>
+				<contenu>projet1version1.pdf</contenu>
+			</version>
+		</versions>
+		<groupes>
+			<groupe>
+				<uid>1</uid>
+				<membres>
+					<membre>
+						<uid>1</uid>
+						<name>hamza boudouche</name>
+					</membre>
+				</membres>
+				<projects>
+					<project>
+						<uid>1</uid>
+					</project>
+				</projects>
+			</groupe>
+		</groupes>
+		<profId>2</profId>
+		<status>FINI</status>
+		<type>PROJET_INTEGRE</type>
 	</project>
 </root>
 `, console.log)
