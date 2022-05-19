@@ -44,11 +44,16 @@ exports.getProjectsByName = async (req, res, next) => {
     res.json(projects);
 }
 
-exports.commentProject = async (req, res, next) => {
-    await functions.commentProject(req.body.profId, req.body.projectId, req.body.contenu);
+exports.commentVersion = async (req, res, next) => {
+    await functions.commentVersion(req.body.profId, req.body.projectId, req.body.versionId, req.body.contenu);
     res.json({
         profId: req.body.name,
         projectId: req.body.projectId,
         contenu: req.body.contenu
     });
+}
+
+exports.getProjectById = async (req, res, next) => {
+    const project = await functions.getProjectById(req.query.id);
+    res.json(project)
 }

@@ -2,8 +2,9 @@
 xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 <project>
 	<uid>1</uid>
-	<titre>projet 1</titre>
+	<titre>projet-1</titre>
 	<note>20</note>
+	<description>this is a description</description>
 	<motscles>
 		<motcle>
 			JAVA
@@ -17,30 +18,47 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 			<prof>prof1</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
+		<comment>
+			<prof>prof2</prof>
+			<contenu>contenu comment</contenu>
+		</comment>
 	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet1version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet1version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-			<projects>
-				<project>
-					<uid>1</uid>
-				</project>
-			</projects>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
 	<type>PROJET_INTEGRE</type>
@@ -48,8 +66,9 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 
 	<project>
 	<uid>2</uid>
-	<titre>projet 2</titre>
+	<titre>projet-2</titre>
 	<note>20</note>
+	<description>this is a description</description>
 	<motscles>
 		<motcle>
 			JAVA
@@ -63,25 +82,47 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 			<prof>prof1</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
+		<comment>
+			<prof>prof1</prof>
+			<contenu>contenu comment</contenu>
+		</comment>
 	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet2version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet2version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
 	<type>PROJET_INTEGRE</type>
@@ -89,7 +130,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 
 	<project>
 	<uid>3</uid>
-	<titre>projet 3</titre>
+	<titre>projet-3</titre>
+	<description>this is a description</description>
 	<note>20</note>
 	<motscles>
 		<motcle>
@@ -99,37 +141,44 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 			NODEJS
 		</motcle>
 	</motscles>
-	<comments>
-		<comment>
-			<prof>prof1</prof>
-			<contenu>contenu comment</contenu>
-		</comment>
-	</comments>
 	<versions>
 		<version>
+			<uid>1</uid>
 			<numero>1</numero>
-			<commentaire>something comment</commentaire>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
 			<contenu>projet1version1.pdf</contenu>
 		</version>
+		<version>
+			<uid>2</uid>
+			<numero>2</numero>
+			<comments>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+				<comment>
+					<prof>prof1</prof>
+					<contenu>contenu comment</contenu>
+				</comment>
+			</comments>
+			<contenu>projet1version2.pdf</contenu>
+		</version>
 	</versions>
-	<groupes>
-		<groupe>
-			<uid>1</uid>
-			<membres>
-				<membre>
-					<uid>1</uid>
-					<name>hamza boudouche</name>
-				</membre>
-			</membres>
-			<projects>
-				<project>
-					<uid>1</uid>
-				</project>
-			</projects>
-		</groupe>
-	</groupes>
+	<membres>
+		<uid>1</uid>
+		<uid>2</uid>
+	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
-	<type>PROJET_INTEGRE</type>
+	<type>PFE</type>
 	</project>
 </root>

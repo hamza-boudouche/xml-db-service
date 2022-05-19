@@ -6,8 +6,6 @@ const { validate } = require("../utils/xml/validate")
 
 client.execute("open user_db", console.log);
 
-// IMPORTANT - convert the param into xml using the imported jsToXml - before returning convert result into json using the imported xmlToJs
-
 const getUsersXML = async () => {
 	let res = await executeAsync(client, "xquery /")
 	return res.result
@@ -20,6 +18,18 @@ const getUsers = async () => {
 	// console.log(toXml)
 	const users = toXml.user ? toXml.user : []
 	return users
+}
+
+const getStudents = async () => {
+	let users = await getUsers();
+	users = users.filter(user => user.type === "student")
+	return users;
+}
+
+const getProfs = async () => {
+	let users = await getUsers()
+	users = users.filter(user => user.type === "prof")
+	return users;
 }
 
 const addUser = async (user) => {
