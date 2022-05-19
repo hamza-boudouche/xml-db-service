@@ -17,7 +17,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="comments" minOccurs="0">
+            <xs:element name="comments">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="comment">
@@ -67,7 +67,7 @@
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="projects">
+                        <xs:element name="projects" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element name="project">

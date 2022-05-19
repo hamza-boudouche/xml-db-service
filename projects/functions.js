@@ -8,23 +8,13 @@ client.execute("open projects_db", console.log);
 
 const getProjectsXML = async (query = "") => {
 	let res = await executeAsync(client, `xquery /${query}`)
-	console.log("res:", res)
 	return res.result
 }
 
-(async () => {
-	console.log('working');
-	// const query = "/root/project[motscles/motcle[text() = 'JAVA']]"
-	const query = "/root/project[motscles[motcle = 'JAVA']]"
-	// const res = await executeAsync(client, `xquery /${query}`)
-	const res = await getProjectsXML(query)
-	console.log("res:", res)
-})();
-
 const getProjects = async (query = "") => {
 	const res = await getProjectsXML(query);
-	console.log(query)
 	// console.log("res:", res)
+	console.log(query)
 	const toXml = xmlToJs(res).root
 	// console.log(JSON.stringify(toXml, null, 4))
 	const projects = toXml.project ? toXml.project : []
@@ -34,7 +24,7 @@ const getProjects = async (query = "") => {
 const addProject = async (project) => {
 	let projects = await getProjects();
 	console.log(projects)
-	if (projects.map(p => p.id).filter(p => p == project.id).length === 0) {
+	if (projects.map(p => p.uid).filter(p => p == project.uid).length === 0) {
 		projects = [...projects, project]
 		const xml = jsToXml({
 			project: projects
@@ -50,7 +40,7 @@ const addProject = async (project) => {
 const updateProject = async (project) => {
 	let projects = await getProjects();
 	projects = projects.map(p => {
-		if (project.id === p.id) {
+		if (project.uid === p.uid) {
 			return project;
 		} else {
 			return p;
@@ -67,7 +57,7 @@ const updateProject = async (project) => {
 
 const deleteProject = async (projectId) => {
 	let projects = await getProjects();
-	projects = projects.filter(p => p.id !== projectId);
+	projects = projects.filter(p => p.uid !== projectId);
 	const xml = jsToXml({ project: projects })
 	if (await validate(xml, "projects.xsd")) {
 		client.replace("/projects/projects.xml", xml, console.log)
@@ -78,20 +68,30 @@ const deleteProject = async (projectId) => {
 
 const getProjectsByKeyword = async (keyword) => {
 	keyword = keyword.toUpperCase()
-	const projects = await getProjects(`/root/project[motscles[motcle = '${keyword}']]`);
+	console.log("keyword", keyword)
+	let projectsFiltered = await getProjects(`/root[project/motscles[motcle = '${keyword}']]`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.motscles.motcle.indexOf(keyword) !== -1)
 	return projects;
 }
 
 const getProjectsByType = async (type) => {
-	keyword = keyword.toUpperCase()
-	const projects = await getProjects(`root/project[type = '${type}']`);
+	type = type.toUpperCase()
+	const projectsFiltered = await getProjects(`root[project/type = '${type}']`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.type === type)
 	return projects;
 }
 
-const getProjectsByName = async (name) => {
-	keyword = keyword.toLowerCase()
-	const projects = await getProjects(`root/project[groupes/groupe/membres/membre[name = '${keyword}']]`);
-	return projects
+const getProjectsByName = async (titre) => {
+	titre = titre.toLowerCase()
+	const projectsFiltered = await getProjects(`root[project/groupes/groupe/membres/membre[name = '${keyword}']]`);
+	let projects = await getProjects() || projectsFiltered;
+	projects = projects.filter(project =>
+		project.titre === titre)
+	return projects;
 }
 
 const commentProject = async (profId, projectId, contenu) => {
@@ -105,8 +105,14 @@ const commentProject = async (profId, projectId, contenu) => {
 		}
 		return project
 	})
-
 }
+
+// (async () => {
+// 	console.log('working');
+// 	const projects = await getProjectsByKeyword("XML");
+// 	console.log(projects)
+// 	projects.forEach(project => console.log(project.motscles))
+// })();
 
 // const testing = async () => {
 // 	await addProject({
