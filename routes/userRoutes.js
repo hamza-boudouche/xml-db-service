@@ -18,6 +18,6 @@ router.post('/adduser', userCrud.addUser);
 
 //Deleting a user
 router.delete('/deleteuser', userCrud.deleteUser);
-router.get('/rapport', projectCrud.generateReportUsers);
+// router.get('/rapport', projectCrud.generateReportUsers);
 
 module.exports = router;

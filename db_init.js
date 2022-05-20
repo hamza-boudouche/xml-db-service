@@ -49,27 +49,27 @@ client2.add("/projects/projects.xml", `
 	</motscles>
 	<comments>
 		<comment>
-			<prof>prof1</prof>
+			<prof>test@test.com</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
 		<comment>
-			<prof>prof2</prof>
+			<prof>test@test.com</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
 	</comments>
 	<versions>
 		<version>
 			<uid>1</uid>
-			<publisher>2</publisher>
+			<publisher>test@test.com</publisher>
 			<numero>1</numero>
 			<description>this is a description</description>
 			<comments>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 			</comments>
@@ -79,14 +79,14 @@ client2.add("/projects/projects.xml", `
 			<uid>2</uid>
 			<description>this is a description</description>
 			<publisher>2</publisher>
-			<numero>2</numero>
+			<numero>test@test.com</numero>
 			<comments>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 			</comments>
@@ -94,8 +94,8 @@ client2.add("/projects/projects.xml", `
 		</version>
 	</versions>
 	<membres>
-		<uid>1</uid>
-		<uid>2</uid>
+		<uid>test@test.com</uid>
+		<uid>test2@test.com</uid>
 	</membres>
 	<profId>2</profId>
 	<status>FINI</status>
@@ -117,7 +117,7 @@ client2.add("/projects/projects.xml", `
 	</motscles>
 	<comments>
 		<comment>
-			<prof>prof1</prof>
+			<prof>test@test.com</prof>
 			<contenu>contenu comment</contenu>
 		</comment>
 		<comment>
@@ -129,7 +129,7 @@ client2.add("/projects/projects.xml", `
 		<version>
 			<uid>1</uid>
 			<description>this is a description</description>
-			<publisher>2</publisher>
+			<publisher>test@test.com</publisher>
 			<numero>1</numero>
 			<comments>
 				<comment>
@@ -147,14 +147,14 @@ client2.add("/projects/projects.xml", `
 			<uid>2</uid>
 			<description>this is a description</description>
 			<numero>2</numero>
-			<publisher>2</publisher>
+			<publisher>test@test.com</publisher>
 			<comments>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 			</comments>
@@ -162,10 +162,10 @@ client2.add("/projects/projects.xml", `
 		</version>
 	</versions>
 	<membres>
-		<uid>1</uid>
-		<uid>2</uid>
+		<uid>test@test.com</uid>
+		<uid>test2@test.com</uid>
 	</membres>
-	<profId>2</profId>
+	<profId>test@test.com</profId>
 	<status>FINI</status>
 	<type>PROJET_INTEGRE</type>
 	</project>
@@ -186,16 +186,16 @@ client2.add("/projects/projects.xml", `
 	<versions>
 		<version>
 			<uid>1</uid>
-			<publisher>2</publisher>
+			<publisher>test@test.com</publisher>
 			<description>this is a description</description>
 			<numero>1</numero>
 			<comments>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 			</comments>
@@ -203,16 +203,16 @@ client2.add("/projects/projects.xml", `
 		</version>
 		<version>
 			<uid>2</uid>
-			<publisher>2</publisher>
+			<publisher>test@test.com</publisher>
 			<description>this is a description</description>
 			<numero>2</numero>
 			<comments>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 				<comment>
-					<prof>prof1</prof>
+					<prof>test@test.com</prof>
 					<contenu>contenu comment</contenu>
 				</comment>
 			</comments>
@@ -220,13 +220,14 @@ client2.add("/projects/projects.xml", `
 		</version>
 	</versions>
 	<membres>
-		<uid>1</uid>
-		<uid>2</uid>
+		<uid>test@test.com</uid>
+		<uid>test2@test.com</uid>
 	</membres>
-	<profId>2</profId>
+	<profId>test@test.com</profId>
 	<status>FINI</status>
 	<type>PFE</type>
 	</project>
 </root>
+
 `, console.log)
 client2.close()
