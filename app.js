@@ -7,7 +7,10 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors())
+app.use(cors({
+	origin: '*',
+	credentials: true
+}))
 app.options('*', cors());
 
 
@@ -15,6 +18,6 @@ app.use('/api/users', userRoutes);
 
 app.use('/api/projects', projectRoutes);
 
-app.use(express.static('out'));
+app.use(express.static('out/pdf'));
 
 module.exports = app; 
