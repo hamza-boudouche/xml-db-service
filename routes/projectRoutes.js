@@ -26,5 +26,6 @@ router.get('/name', projectCrud.getProjectsByName);
 router.post('/comment', projectCrud.commentVersion);
 router.get('/rapport', projectCrud.generateReportProjects);
 router.get('/id', projectCrud.getProjectById)
+router.post('/upload', projectCrud.uploadVersion)
 
 module.exports = router;

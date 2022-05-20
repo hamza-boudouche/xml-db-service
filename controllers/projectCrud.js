@@ -1,3 +1,7 @@
+const fs = require('fs-extra');
+const path = require('path');
+
+
 //Contenir la logique métier 
 const functions = require('../projects/functions');
 const { generatePdf, saveXmlFile, clearOutFolders, sendPdf } = require("../utils/xml/xslfo")
@@ -54,4 +58,24 @@ exports.commentVersion = async (req, res, next) => {
 exports.getProjectById = async (req, res, next) => {
     const project = await functions.getProjectById(req.query.id);
     res.json(project)
+}
+
+exports.uploadVersion = async (req, res, next) => {
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    let sampleFile = req.files[''];
+    console.log(req.files[''])
+    const outputFile = req.query.filename
+    const projectId = req.query.projectid
+    const versionId = req.query.versionid
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv(`/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/public/${outputFile}.pdf`, function (err) {
+        if (err)
+            return res.status(500).send(err);
+
+        res.send('File uploaded!');
+    });
 }

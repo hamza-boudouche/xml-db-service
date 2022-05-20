@@ -2,9 +2,14 @@ const express = require('express');
 const userRoutes = require('./routes/userRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const cors = require('cors');
+const busboy = require('connect-busboy');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 app.use(express.json());
+// app.use(busboy());
+
+app.use(fileUpload());
 
 app.use(cors({
   origin: "*",
