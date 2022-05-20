@@ -23,10 +23,8 @@ exports.deleteProject = async (req, res, next) => {
 }
 
 exports.generateReportProjects = async (req, res, next) => {
-    await saveXmlFile(await functions.getProjectsXML(), "out.xml")
-    await generatePdf("out.xml", "projects.xsl", "projects.pdf")
-    sendPdf(res, "projects.pdf");
-    await clearOutFolders();
+    await saveXmlFile(await functions.getProjectsXML(), "projects.xml")
+    generatePdf("projects.xml", "projects.xsl", "projects.pdf")
 }
 
 exports.getProjectsByKeyword = async (req, res, next) => {

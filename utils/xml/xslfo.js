@@ -4,16 +4,15 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const generatePdf = (xmlFile, xslFile, outputFile) => {
-	const ls = spawn("fop", ["-xml", path.join(__dirname, `../../out/xml/${xmlFile}`), "-xsl", path.join(__dirname, `./xsl/${xslFile}`), "-pdf", path.join(__dirname, `../../out/pdf/${outputFile}`)]);
-
-	return new Promise((resolve, reject) => {
-		ls.on('error', (error) => {
-			reject(error);
-		});
-		ls.on("close", code => {
-			resolve(code);
-		});
+	exec(`fop -xml "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/out/xml/${xmlFile}" -xsl "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/utils/xml/xsl/${xslFile}" -pdf "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/public/${outputFile}"`, (error, stdout, stderr) => {
+		if (error) {
+			console.log(error.message);
+		}
+		if (stderr) {
+			console.log(stderr)
+		}
 	})
+	console.log(true);
 }
 
 const saveXmlFile = async (xml, outputFile) => {
@@ -22,9 +21,8 @@ const saveXmlFile = async (xml, outputFile) => {
 }
 
 const clearOutFolders = () => {
-	console.log("hello world")
 	return new Promise((resolve, reject) => {
-		exec(`del ${path.join(__dirname, "../../out/pdf/*")} ; del ${path.join(__dirname, "../../out/xml/*")}`, (error, stdout, stderr) => {
+		exec(`rm ${path.join(__dirname, "../../out/pdf/*")} ; rm ${path.join(__dirname, "../../out/xml/*")}`, (error, stdout, stderr) => {
 			if (error) {
 				reject(error.message);
 			}
@@ -45,16 +43,5 @@ const sendPdf = (res, fileName) => {
 	file.pipe(res);
 	res.end();
 }
-
-(async () => {
-	const ls = spawn("rm", [path.join(__dirname, "../../out/pdf/*")]);
-
-	ls.on('error', (error) => {
-		console.log("error", error);
-	});
-	ls.on("close", code => {
-		console.log("code", code);
-	});
-})();
 
 module.exports = { generatePdf, saveXmlFile, clearOutFolders, sendPdf }

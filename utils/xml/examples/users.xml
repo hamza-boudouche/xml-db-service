@@ -3,16 +3,14 @@
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="../schemas/users.xsd">
 	<user>
-		<uid>1</uid>
-		<email>hamza</email>
+		<uid>hamza@hamza</uid>
 		<displayName>hamzaAdmin</displayName>
 		<imageUrl>hamza</imageUrl>
 		<type>admin</type>
 	</user>
 
 	<user>
-		<uid>2</uid>
-		<email>hamza</email>
+		<uid>hamza@hamz</uid>
 		<displayName>hamza</displayName>
 		<imageUrl>hamza</imageUrl>
 		<type>student</type>
@@ -21,8 +19,7 @@ xsi:noNamespaceSchemaLocation="../schemas/users.xsd">
 	</user>
 
 	<user>
-		<uid>3</uid>
-		<email>hamza</email>
+		<uid>hamza@ham</uid>
 		<displayName>hamza</displayName>
 		<imageUrl>hamza</imageUrl>
 		<type>prof</type>

@@ -3,35 +3,28 @@ let client = new basex.Session("localhost", 1984, "admin", "admin");
 client.execute("create db user_db", console.log);
 client.add("/users/users.xml", `
 <root>
-	<user>
-		<uid>1</uid>
-		<displayName>hamzaAdmin</displayName>
-		<imageUrl>hamza</imageUrl>
-		<mle>123444</mle>
-		<type>admin</type>
-		<email>hamza</email>
-		
-		
-		
-	</user>
+<user>
+<uid>hamza@hamza</uid>
+<displayName>hamzaAdmin</displayName>
+<imageUrl>hamza</imageUrl>
+<type>admin</type>
+</user>
 
-	<user>
-		<uid>2</uid>
-		<email>hamza</email>
-		<displayName>hamza</displayName>
-		<imageUrl>hamza</imageUrl>
-		<type>student</type>
-		<mle>61947</mle>
-		<niveauetudes>BAC3</niveauetudes>
-	</user>
+<user>
+<uid>hamza@hamz</uid>
+<displayName>hamza</displayName>
+<imageUrl>hamza</imageUrl>
+<type>student</type>
+<mle>61947</mle>
+<niveauetudes>BAC3</niveauetudes>
+</user>
 
-	<user>
-		<uid>3</uid>
-		<email>hamza</email>
-		<displayName>hamza</displayName>
-		<imageUrl>hamza</imageUrl>
-		<type>prof</type>
-	</user>
+<user>
+<uid>hamza@ham</uid>
+<displayName>hamza</displayName>
+<imageUrl>hamza</imageUrl>
+<type>prof</type>
+</user>
 </root>
 `, console.log)
 client.close()
@@ -67,7 +60,9 @@ client2.add("/projects/projects.xml", `
 	<versions>
 		<version>
 			<uid>1</uid>
+			<publisher>2</publisher>
 			<numero>1</numero>
+			<description>this is a description</description>
 			<comments>
 				<comment>
 					<prof>prof1</prof>
@@ -82,6 +77,8 @@ client2.add("/projects/projects.xml", `
 		</version>
 		<version>
 			<uid>2</uid>
+			<description>this is a description</description>
+			<publisher>2</publisher>
 			<numero>2</numero>
 			<comments>
 				<comment>
@@ -131,6 +128,8 @@ client2.add("/projects/projects.xml", `
 	<versions>
 		<version>
 			<uid>1</uid>
+			<description>this is a description</description>
+			<publisher>2</publisher>
 			<numero>1</numero>
 			<comments>
 				<comment>
@@ -146,7 +145,9 @@ client2.add("/projects/projects.xml", `
 		</version>
 		<version>
 			<uid>2</uid>
+			<description>this is a description</description>
 			<numero>2</numero>
+			<publisher>2</publisher>
 			<comments>
 				<comment>
 					<prof>prof1</prof>
@@ -185,6 +186,8 @@ client2.add("/projects/projects.xml", `
 	<versions>
 		<version>
 			<uid>1</uid>
+			<publisher>2</publisher>
+			<description>this is a description</description>
 			<numero>1</numero>
 			<comments>
 				<comment>
@@ -200,6 +203,8 @@ client2.add("/projects/projects.xml", `
 		</version>
 		<version>
 			<uid>2</uid>
+			<publisher>2</publisher>
+			<description>this is a description</description>
 			<numero>2</numero>
 			<comments>
 				<comment>
@@ -223,6 +228,5 @@ client2.add("/projects/projects.xml", `
 	<type>PFE</type>
 	</project>
 </root>
-
 `, console.log)
 client2.close()

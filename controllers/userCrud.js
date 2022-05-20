@@ -32,3 +32,8 @@ exports.deleteUser = async (req, res, next) => {
     await fonctions.deleteUser(req.params.uid);
     res.json({ id: req.params.uid })
 }
+
+exports.generateReportUsers = async (req, res, next) => {
+    await saveXmlFile(await fonctions.getUsersXML(), "users.xml")
+    generatePdf("users.xml", "users.xsl", "users.pdf")
+}

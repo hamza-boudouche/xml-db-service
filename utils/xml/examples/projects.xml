@@ -26,7 +26,9 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 	<versions>
 		<version>
 			<uid>1</uid>
+			<publisher>2</publisher>
 			<numero>1</numero>
+			<description>this is a description</description>
 			<comments>
 				<comment>
 					<prof>prof1</prof>
@@ -41,6 +43,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		</version>
 		<version>
 			<uid>2</uid>
+			<description>this is a description</description>
+			<publisher>2</publisher>
 			<numero>2</numero>
 			<comments>
 				<comment>
@@ -90,6 +94,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 	<versions>
 		<version>
 			<uid>1</uid>
+			<description>this is a description</description>
+			<publisher>2</publisher>
 			<numero>1</numero>
 			<comments>
 				<comment>
@@ -105,7 +111,9 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		</version>
 		<version>
 			<uid>2</uid>
+			<description>this is a description</description>
 			<numero>2</numero>
+			<publisher>2</publisher>
 			<comments>
 				<comment>
 					<prof>prof1</prof>
@@ -144,6 +152,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 	<versions>
 		<version>
 			<uid>1</uid>
+			<publisher>2</publisher>
+			<description>this is a description</description>
 			<numero>1</numero>
 			<comments>
 				<comment>
@@ -159,6 +169,8 @@ xsi:noNamespaceSchemaLocation="../schemas/projects.xsd">
 		</version>
 		<version>
 			<uid>2</uid>
+			<publisher>2</publisher>
+			<description>this is a description</description>
 			<numero>2</numero>
 			<comments>
 				<comment>
