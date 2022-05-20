@@ -11,7 +11,7 @@
             <xs:element type="xs:string" name="displayName"/>
             <xs:element type="xs:string" name="imageUrl"/>
             <xs:element type="xs:string" name="type"/>
-            <xs:element type="xs:int" name="mle" minOccurs="0"/>
+            <xs:element type="xs:string" name="mle" minOccurs="0"/>
             <xs:element type="xs:string" name="niveauetudes" minOccurs="0"/>
           </xs:all>
         </xs:complexType>
