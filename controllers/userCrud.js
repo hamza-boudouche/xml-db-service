@@ -18,6 +18,11 @@ exports.getUsers = async (req, res, next) => {
     res.json(users)
 }
 
+exports.getUserById = async (req, res, next) => {
+    const user = await fonctions.getUserById(req.params.id);
+    res.json(user)
+}
+
 exports.getStudents = async (req, res, next) => {
     const students = await fonctions.getStudents();
     res.json(students)

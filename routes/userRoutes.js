@@ -9,7 +9,7 @@ const userCrud = require('../controllers/userCrud.js');
 router.get('/getAll', userCrud.getUsers);
 router.get('/allStudents', userCrud.getStudents);
 router.get('/allProfs', userCrud.getProfs);
-
+router.get("/id/:id", userCrud.getUserById)
 //updating
 router.put('/updateuser', userCrud.updateUser)
 

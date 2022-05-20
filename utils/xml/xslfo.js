@@ -17,7 +17,7 @@ const generatePdf = (xmlFile, xslFile, outputFile) => {
 
 const saveXmlFile = async (xml, outputFile) => {
 	console.log(outputFile)
-	await fs.writeFile(path.join(__dirname, "../../out/xml", outputFile), outputFile);
+	await fs.writeFile(path.join(__dirname, "../../out/xml", outputFile), xml);
 }
 
 const clearOutFolders = () => {

@@ -29,6 +29,7 @@ exports.deleteProject = async (req, res, next) => {
 exports.generateReportProjects = async (req, res, next) => {
     await saveXmlFile(await functions.getProjectsXML(), "projects.xml")
     generatePdf("projects.xml", "projects.xsl", "projects.pdf")
+    res.json({ success: true })
 }
 
 exports.getProjectsByKeyword = async (req, res, next) => {
@@ -71,6 +72,20 @@ exports.uploadVersion = async (req, res, next) => {
     const outputFile = req.query.filename
     const projectId = req.query.projectid
     const versionId = req.query.versionid
+    const numero = req.query.numero
+
+    const project = await functions.getProjectById(projectId);
+    project.versions.version.push({
+        uid: versionId,
+        publisher: "pub",
+        numero,
+        description: "this is a description",
+        comments: {
+            comment: []
+        },
+    })
+    this.updateProject()
+
     // Use the mv() method to place the file somewhere on your server
     sampleFile.mv(`/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/public/${outputFile}.pdf`, function (err) {
         if (err)

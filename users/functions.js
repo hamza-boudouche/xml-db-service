@@ -20,6 +20,11 @@ const getUsers = async () => {
 	return users
 }
 
+const getUserById = async (uid) => {
+	const users = await getUsers();
+	return users.find(user => user.uid == uid)
+}
+
 const getStudents = async () => {
 	let users = await getUsers();
 	users = users.filter(user => user.type === "student")
@@ -100,4 +105,4 @@ const deleteUser = async (userId) => {
 
 // testing();
 
-module.exports = { getUsersXML, addUser, updateUser, getUsers, deleteUser, getStudents,  getProfs }
+module.exports = { getUsersXML, addUser, updateUser, getUsers, deleteUser, getStudents, getProfs, getUserById }
