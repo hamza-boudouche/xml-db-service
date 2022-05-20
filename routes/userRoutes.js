@@ -7,9 +7,11 @@ const userCrud = require('../controllers/userCrud.js');
 
 //get all users
 router.get('/getAll' ,userCrud.getUsers);
+router.get('/allStudents', userCrud.getStudents);
+router.get('/allProfs', userCrud.getProfs);
 
 //updating
-router.put('/', userCrud.updateUser)
+router.put('/updateuser', userCrud.updateUser)
 
 //Adding a user
 router.post('/adduser', userCrud.addUser);
