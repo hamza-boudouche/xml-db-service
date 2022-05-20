@@ -100,4 +100,4 @@ const deleteUser = async (userId) => {
 
 // testing();
 
-module.exports = { getUsersXML, addUser, updateUser, getUsers, deleteUser }
+module.exports = { getUsersXML, addUser, updateUser, getUsers, deleteUser, getStudents,  getProfs }

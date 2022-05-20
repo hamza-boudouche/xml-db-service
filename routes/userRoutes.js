@@ -6,16 +6,18 @@ const userCrud = require('../controllers/userCrud.js');
 //Indiquer à l'application la fonction à executer quand elle reçoit une requete http.
 
 //get all users
-router.get('/' ,userCrud.getUsers);
+router.get('/getAll' ,userCrud.getUsers);
+router.get('/allStudents', userCrud.getStudents);
+router.get('/allProfs', userCrud.getProfs);
 
 //updating
-router.put('/', userCrud.updateUser)
+router.put('/updateuser', userCrud.updateUser)
 
 //Adding a user
-router.post('/', userCrud.addUser);
+router.post('/adduser', userCrud.addUser);
 
 //Deleting a user
-router.delete('/', userCrud.deleteUser);
+router.delete('/deleteuser', userCrud.deleteUser);
 
 
 module.exports = router;
