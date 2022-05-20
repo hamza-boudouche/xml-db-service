@@ -177,31 +177,6 @@
 											</fo:block>
 										</fo:table-cell>
 									</fo:table-row>
-									<fo:table-row>
-										<fo:table-cell border="1pt solid black" padding="6pt">
-											<fo:block>
-												doamines d'expertise
-											</fo:block>
-										</fo:table-cell>
-										<fo:table-cell border="1pt solid black" padding="6pt">
-											<fo:block>
-												<xsl:for-each select="domainesexpertise/domaine">
-													<fo:list-block>
-														<fo:list-item>
-															<fo:list-item-label>
-																<fo:block></fo:block>
-															</fo:list-item-label>
-															<fo:list-item-body>
-																<fo:block>
-																	<xsl:value-of select="." />
-																</fo:block>
-															</fo:list-item-body>
-														</fo:list-item>
-													</fo:list-block>
-												</xsl:for-each>
-											</fo:block>
-										</fo:table-cell>
-									</fo:table-row>
 								</fo:table-body>
 							</fo:table>
 						</fo:block>

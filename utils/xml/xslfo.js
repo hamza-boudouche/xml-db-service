@@ -4,8 +4,9 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const generatePdf = (xmlFile, xslFile, outputFile) => {
-	const ls = spawn("fop", ["-xml", path.join(__dirname, `../../out/xml/${xmlFile}`), "-xsl", path.join(__dirname, `./xsl/${xslFile}`), "-pdf", path.join(__dirname, `../../out/pdf/${outputFile}`)]);
-
+	// console.log(`fop -xml ${path.join(__dirname, `../../out/xml/${xmlFile}`)} -xsl ${path.join(__dirname, `./xsl/${xslFile}`)} -pdf ${path.join(__dirname, `../../out/pdf/${outputFile}`)}`)
+	const ls = spawn('powershell.exe', [String.raw`fop -xml C:\\Users\\Boudouche Hamza\\Desktop\\basex npm\\out\\xml\\something.xml -xsl C:\\Users\\Boudouche Hamza\\Desktop\\basex npm\\utils\\xml\\xsl\\projects.xsl -pdf C:\\Users\\Boudouche Hamza\\Desktop\\basex npm\\out\\pdf\\output.pdf`], { shell: true });
+	console.log("i am here")
 	return new Promise((resolve, reject) => {
 		ls.on('error', (error) => {
 			reject(error);
@@ -47,14 +48,9 @@ const sendPdf = (res, fileName) => {
 }
 
 (async () => {
-	const ls = spawn("rm", [path.join(__dirname, "../../out/pdf/*")]);
-
-	ls.on('error', (error) => {
-		console.log("error", error);
-	});
-	ls.on("close", code => {
-		console.log("code", code);
-	});
+	// saveXmlFile("something", "something.xml");
+	const res = await generatePdf("something.xml", "projects.xsl", "output.pdf");
+	console.log(res)
 })();
 
 module.exports = { generatePdf, saveXmlFile, clearOutFolders, sendPdf }

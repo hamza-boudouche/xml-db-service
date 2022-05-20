@@ -37,9 +37,11 @@
                 <xs:sequence>
                   <xs:element name="version" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
-                      <xs:sequence>
+                      <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:element type="xs:byte" name="uid"/>
+                        <xs:element type="xs:byte" name="publisher"/>
                         <xs:element type="xs:byte" name="numero"/>
+                        <xs:element type="xs:string" name="description"/>
                         <xs:element name="comments">
                           <xs:complexType>
                             <xs:sequence>
@@ -55,7 +57,7 @@
                           </xs:complexType>
                         </xs:element>
                         <xs:element type="xs:string" name="contenu"/>
-                      </xs:sequence>
+                      </xs:choice>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
