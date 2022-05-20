@@ -15,7 +15,25 @@ client.add("/users/users.xml", `
 <displayName>hamza</displayName>
 <imageUrl>hamza</imageUrl>
 <type>student</type>
-<mle>61947</mle>
+<mle>51947</mle>
+<niveauetudes>BAC3</niveauetudes>
+</user>
+
+<user>
+<uid>soufiane@test.com</uid>
+<displayName>soufiane</displayName>
+<imageUrl>soufiane</imageUrl>
+<type>student</type>
+<mle>619747</mle>
+<niveauetudes>BAC3</niveauetudes>
+</user>
+
+<user>
+<uid>amal@test.com</uid>
+<displayName>amal</displayName>
+<imageUrl>amal</imageUrl>
+<type>student</type>
+<mle>619947</mle>
 <niveauetudes>BAC3</niveauetudes>
 </user>
 

@@ -32,5 +32,6 @@ app.use('/api/users', userRoutes);
 
 app.use('/api/projects', projectRoutes);
 
+app.use(express.static('public'));
 
 module.exports = app; 
