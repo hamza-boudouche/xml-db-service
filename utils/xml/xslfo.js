@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const generatePdf = (xmlFile, xslFile, outputFile) => {
-	exec(`fop -xml "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/out/xml/${xmlFile}" -xsl "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/utils/xml/xsl/${xslFile}" -pdf "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/out/pdf/${outputFile}"`, (error, stdout, stderr) => {
+	exec(`fop -xml "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/out/xml/${xmlFile}" -xsl "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/utils/xml/xsl/${xslFile}" -pdf "/mnt/c/Users/Boudouche\ Hamza/Desktop/basex\ npm/public/${outputFile}"`, (error, stdout, stderr) => {
 		if (error) {
 			console.log(error.message);
 		}
@@ -43,11 +43,5 @@ const sendPdf = (res, fileName) => {
 	file.pipe(res);
 	res.end();
 }
-
-(async () => {
-	// saveXmlFile("something", "something.xml");
-	// const res = await generatePdf("something.xml", "projects.xsl", "output.pdf");
-	// clearOutFolders();
-})();
 
 module.exports = { generatePdf, saveXmlFile, clearOutFolders, sendPdf }
